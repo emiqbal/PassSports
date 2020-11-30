@@ -240,7 +240,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   devise
   dotenv-rails
-  faker (~> 1.6, >= 1.6.3)
+  faker
   font-awesome-sass
   jbuilder (~> 2.7)
   listen (~> 3.2)
