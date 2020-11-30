@@ -5,13 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+Equipment.destroy_all
 
 a = (20..100).to_a
 
-Equipment.new(name: Faker::Job.title,
-  description: Faker::Job.field,
-  available: true,
-  price_per_day: a.sample,
-  user: User.first
-  )
-
+5.times do
+  puts "Creating Equipment using seed..."
+  equipment = Equipment.new(name: Faker::Job.title,
+    description: Faker::Job.field,
+    available: true,
+    price_per_day: a.sample,
+    user: User.first
+    )
+  equipment.save!
+end
