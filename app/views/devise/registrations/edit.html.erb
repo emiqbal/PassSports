@@ -1,9 +1,9 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2 class='mt-3 container w-75 p-0'><strong>Edit <%= resource_name.to_s.humanize %></strong></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-login contianer">
+  <div class="form-login w-75 container">
     <%= f.input :email, required: true, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -11,25 +11,25 @@
     <% end %>
 
     <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
+                hint: "leave this as a blank space if not in use. just like taylor swift.",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
+                hint: "same here.",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
+                hint: "Psst...don't worry we're just checking. 😉",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
+    <%= f.button :submit, "Update", class: 'btn btn-primary' %>
+</div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<div class="form-login container mb-3 w-75 ">
+<h3><strong>Cancel my account</strong></h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Hate sports? <%= link_to "Cancel your account.", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Back", :back, class: 'btn btn-primary' %>
+</div>
