@@ -1,16 +1,15 @@
-<%= render 'shared/navbar' %>
 
-<h2 class='container '>Sign up</h2>
+<h2 class='container mt-3'>Sign up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs container">
+  <div class="form-login container">
     <%= f.input :email,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
-                <%= f.input :email,
+    <%= f.input :email,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "username" }%>
@@ -24,7 +23,7 @@
   </div>
 
   <div class="form-actions container">
-    <%= f.button :submit, "Sign up", class: "btn-primary" %>
+    <%= f.button :submit, "Sign up", class: "btn-primary mt-3" %>
     <%= render "devise/shared/links" %>
   </div>
 <% end %>
