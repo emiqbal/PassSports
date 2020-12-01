@@ -1,2 +1,8 @@
 <h1>Equipments#index</h1>
 <p>Find me in app/views/equipments/index.html.erb</p>
+<%= cl_image_tag("ijwqbdza922vcit1crky",
+      width: 400, height: 300, crop: :fill) %>
+
+<%= simple_form_for(equipment) do |f| %>
+  <%= f.input :photo, as: :file %>
+<% end %>
