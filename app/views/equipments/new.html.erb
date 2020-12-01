@@ -1,0 +1,9 @@
+ <h1>Add New Equipment!</h1>
+
+<%#= simple_form_for(@equipment) do |f| %>
+<%= simple_form_for(@equipment, as: :equipment, method: :post, url: equipments_path) do |f| %>
+ <%= f.input :name %>
+ <%= f.input :description %>
+ <%= f.input :price_per_day %>
+ <%= f.submit "Post", class: "btn btn-primary" %>
+ <% end %>
