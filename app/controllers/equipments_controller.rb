@@ -13,7 +13,10 @@ class EquipmentsController < ApplicationController
   end
 
   def create
-    @equipment = Equipment.new(params[:equipment])
+    @equipment = Equipment.new(equipment_params)
+    user = current_user
+    @equipment.user = user
+    @equipment.price_per_day *= 100
     @equipment.save
     redirect_to equipment_path(@equipment)
   end
