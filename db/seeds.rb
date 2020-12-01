@@ -5,13 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+<<<<<<< HEAD
 require 'faker'
 require "open-uri"
+=======
+require_relative 'scraping'
+>>>>>>> master
 
 Equipment.destroy_all
 
-a = (20..100).to_a
+title = scraping_title
 
+a = (2000..10000).to_a
+
+<<<<<<< HEAD
 links = [
   "https://source.unsplash.com/H5aZzaiW_xk",
   "https://source.unsplash.com/27_ARYvu9YY",
@@ -22,16 +29,24 @@ links = [
 # links[n]
 
 5.times do |n|
+=======
+5.times do
+
+>>>>>>> master
   puts "Creating Equipment using seed..."
-  equipment = Equipment.new(name: Faker::Job.title,
-    description: Faker::Job.field,
+  equipment = Equipment.new(name: title.first[:name],
+    description: title.first[:description],
     available: true,
     price_per_day: a.sample,
-    user: User.first
+    user: User.last
     )
   equipment.save!
+<<<<<<< HEAD
 
   file = URI.open(links[n])
   equipment.photo.attach(io: file, filename: "0000#{n}.png", content_type: 'image/png')
 
+=======
+  title.shift
+>>>>>>> master
 end
