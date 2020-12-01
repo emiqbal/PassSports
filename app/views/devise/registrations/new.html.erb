@@ -2,12 +2,11 @@
 <div class="container w-75">
 <h2 class='mt-3'><strong>Sign up</strong></h2>
 
-
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-login container">
-    <%#= f.input :username,
+    <%= f.input :username,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "username" }%>
