@@ -1,0 +1,19 @@
+<div class='container mt-3 w-75'>
+<h2><strong>Forgot your password?</strong></h2>
+
+
+<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-login container">
+    <%= f.input :email,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "email" } %>
+      <%#= render "devise/shared/links" %>
+  </div>
+
+    <%= f.button :submit, "Submit", class: 'btn btn-primary mt-3 mr-3 w-auto'%>
+<% end %>
+</div>
+
