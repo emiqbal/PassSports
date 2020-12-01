@@ -5,14 +5,14 @@
   <%= f.error_notification %>
 
   <div class="form-login container">
+    <%= f.input :username,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "username" }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "username" }%>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
