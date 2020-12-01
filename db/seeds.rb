@@ -5,19 +5,23 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'faker'
+require_relative 'scraping'
 
 Equipment.destroy_all
 
-a = (20..100).to_a
+title = scraping_title
+
+a = (2000..10000).to_a
 
 5.times do
+
   puts "Creating Equipment using seed..."
-  equipment = Equipment.new(name: Faker::Job.title,
-    description: Faker::Job.field,
+  equipment = Equipment.new(name: title.first[:name],
+    description: title.first[:description],
     available: true,
     price_per_day: a.sample,
-    user: User.first
+    user: User.last
     )
   equipment.save!
+  title.shift
 end
