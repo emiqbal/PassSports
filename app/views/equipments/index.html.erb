@@ -1,2 +1,14 @@
+
 <h1>Equipments#index</h1>
-<p>Find me in app/views/equipments/index.html.erb</p>
+<ul>
+<% @equipment.each do |equipment| %>
+<div class = card>
+    <li><%= equipment.name %></li>
+    <li><%= equipment.description %></li>
+    <li><%= equipment.price_per_day %></li>
+     <li><%= equipment.available %></li>
+     </div>
+  <% end %>
+</ul>
+
+<!-- beautify with bootstrap -->
