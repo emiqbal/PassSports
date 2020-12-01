@@ -3,10 +3,10 @@ require 'open-uri'
 
 def scraping_title
 
-    product_title = []
+  product_title = []
   product_description = []
 
-  doc = Nokogiri::HTML(File.open("DECATHLON.html"))
+  doc = Nokogiri::HTML(File.open("db/DECATHLON.html"))
 
   doc.search('.h3.product-title').each do |element|
     product_title << element.text.strip.downcase.capitalize
@@ -19,15 +19,12 @@ def scraping_title
     html_doc.search('.product-information').each do |e|
     product_description << e.search('.rte-content').first.text
     end
-    break
   end
-# pp product_title
-# pp product_description
 
-product_hash = []
+  product_hash = []
 
-product_title.each_with_index do |product, index|
-  product_hash << { name: product, description: product_description[index] }
-  binding.pry
-end
+  product_title.each_with_index do |product, index|
+    product_hash << { name: product, description: product_description[index] }
+  end
+  product_hash
 end
