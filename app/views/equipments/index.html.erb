@@ -2,58 +2,22 @@
   <div class="container">
     <h1>Your <strong>Passport</strong> to <strong>all Sports</strong></h1>
     <p>Play anything, we've got you</p>
-    <a class="btn btn-flat" href="#"></a>
   </div>
 </div>
 
-<div class = "m-4">
+<div class = "mt-4">
   <h2><strong>Explore Listings</strong></h2>
 </div>
   <% @equipment.each do |equipment| %>
     <%= link_to equipment_path(equipment) do %>
-      <div class = "m-4">
+      <div class = "my-4">
         <div class="card-product">
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <div class="card-product-infos">
-            <div class = "pt-2">
-              <h3><%= equipment.name %></h3>
-              <h2>$<%= equipment.price_per_day / 100 %> per day</h2>
-            </div>
-            <div class = "text-right">
-            </div>
+              <h4><%= equipment.name %></h4>
+              <p>$<strong><%= equipment.price_per_day / 100 %></strong> per day</p>
           </div>
         </div>
       </div>
     <% end %>
   <% end %>
-
-
-<!-- beautify with bootstrap -->
-<!-- drop shadows
-Margins and padding
-Spacing
-Flexbox to create 2 pages per width
-Link to id form with button. Make the whole img/card a button. Not just the 'view' button
- -->
-
- <!-- <h2>Categories</h2>
-<div class="cards">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    Breakfast
-  </div>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
-    Lunch
-  </div>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-    Dinner
-  </div>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-    Dinner
-  </div>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-    Dinner
-  </div>
-</div> -->
- <!-- Inject the grid here -->
