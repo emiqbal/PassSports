@@ -20,8 +20,7 @@ end
 
   def create
     @equipment = Equipment.new(equipment_params)
-    user = current_user
-    @equipment.user = user
+    @equipment.user = current_user
     @equipment.price_per_day *= 100
     @equipment.save
     query = @equipment.name.split(' ').join(',')
