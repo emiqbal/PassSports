@@ -21,6 +21,10 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :photo, as: :file %>
+    <!-- ask about how to link this file to navbar avatar, and option to edit navbar photo in edit profile. And what does it have to do with cloudinary?
+    also ascreating heroku and cloudinary -->
+
   </div>
 
   <div class="form-actions">
