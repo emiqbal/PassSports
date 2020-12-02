@@ -7,7 +7,7 @@
   <div class="row">
     <%= cl_image_tag @equipment.photo.key, crop: :fill %>
   </div>
-    
+
   <div class="row p-4">
     <div class="col-8 d-inline">
      <h3><%= @equipment.name %></h3>
@@ -24,7 +24,7 @@
             <%# </tr> %>
             <tr>
               <th scope="row">Price</th>
-              <td><%= @equipment.price_per_day %></td>
+              <td>$<%= @equipment.price_per_day / 100 %></td>
             </tr>
           </tbody>
         </table>
