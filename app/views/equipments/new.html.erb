@@ -6,6 +6,7 @@
      <%= f.input :name %>
      <%= f.input :description %>
      <%= f.input :price_per_day, label: 'Price per Day in $' %>
+     <%= f.input :photo, as: :file %>
      <%= f.submit "Post", class: "btn btn-primary" %>
      <% end %>
   </div>
