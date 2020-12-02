@@ -13,7 +13,6 @@ Equipment.destroy_all
 
 title = scraping_title
 
-
 a = (2000..10000).to_a
 
 links = [
@@ -24,7 +23,6 @@ links = [
   "https://source.unsplash.com/FpYX2jXImNk",
 ]
 
-# 5.times do |n|
 5.times do |n|
 
   file = URI.open(links[n])
@@ -40,3 +38,5 @@ links = [
 
   title.shift
 end
+
+puts "Seeding done"
