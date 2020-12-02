@@ -23,10 +23,13 @@ end
     @equipment.user = current_user
     @equipment.price_per_day *= 100
     if @equipment.save
-      query = @equipment.name.split(' ').join(',')
-      url = "https://source.unsplash.com/720x480/?#{query}"
-      image = URI.open(url)
-      @equipment.photo.attach(io: image, filename: "equipment_#{@equipment.id}.jpeg", content_type: 'image/jpeg')
+       if equipment_params[:photo].nil?
+        query = @equipment.name.split(' ').join(',')
+        url = "https://source.unsplash.com/720x480/?#{query}"
+        image = URI.open(url)
+        @equipment.photo.attach(io: image, filename: "equipment_#{@equipment.id}.jpeg", content_type: 'image/jpeg')
+        # use unsplash
+        end
       redirect_to equipment_path(@equipment)
     else
       render :new
