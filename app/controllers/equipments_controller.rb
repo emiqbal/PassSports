@@ -22,6 +22,7 @@ end
     @equipment = Equipment.new(equipment_params)
     @equipment.user = current_user
     @equipment.price_per_day *= 100
+
     if @equipment.save
        if equipment_params[:photo].nil?
         query = @equipment.name.split(' ').join(',')
@@ -34,11 +35,10 @@ end
     else
       render :new
     end
-  end
 
   private
 
   def equipment_params
-    params.require(:equipment).permit(:name, :description, :price_per_day)
+    params.require(:equipment).permit(:name, :description, :price_per_day, :photo)
   end
 end
