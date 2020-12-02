@@ -4,6 +4,7 @@ class RentalsController < ApplicationController
   end
 
   def new
+    @equipment = Equipment.find(params[:equipment_id])
     @user = current_user
     @rental = Rental.new
   end
