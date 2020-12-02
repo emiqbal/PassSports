@@ -12,7 +12,7 @@
     <%= link_to equipment_path(equipment) do %>
       <div class = "my-4">
         <div class="card-product">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+           <%= cl_image_tag equipment.photo.key, crop: :fill %>
           <div class="card-product-infos">
               <h4><%= equipment.name %></h4>
               <p>$<strong><%= equipment.price_per_day / 100 %></strong> per day</p>
