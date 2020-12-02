@@ -1,6 +1,7 @@
 class RentalsController < ApplicationController
-  def index
-    @rentals = Rental.all
+  
+  def index  #this is all rentals here current user = user
+    @rentals = Rental.where(user: current_user) 
   end
 
   def new

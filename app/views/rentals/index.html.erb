@@ -1,0 +1,37 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://secureprintportal.s3.us-west-1.amazonaws.com/production/assets/5966561450122033bd4456f8/imageLocker/blog-description/5f11c366a53d4d3a831471de/blog/sports_banners.png);">
+  <div class="container">
+    <h1> <strong>Your Rentals</strong></h1>
+  </div>
+</div>
+
+
+<div class="row">
+    <div class="col-sm-12 col-md-6">
+      <table class="table">
+        <tbody>
+          <thead>
+            <th>Rentals</th>
+          </thead>
+
+           <% @rentals.each do |rental| %>
+            <tr>
+              <td>
+                  <div class="col-8">
+                    <div class="card-product">
+                    <%= cl_image_tag rental.equipment.photo.key, crop: :fill %>
+                     <%# <div class="card-product-infos"> %>
+                      <h4><%= "#{rental.start_date} to #{rental.end_date}" %></h4>
+                    </div>
+                  </div>
+              </td>
+              <%# <td> %>
+                <%#= "Status" do %>
+                  <%# <i class="fa fa-trash destroy_rental"></i> %>
+                <%# end %>
+              <%# <% </td> %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+</div>
