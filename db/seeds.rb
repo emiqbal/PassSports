@@ -13,6 +13,7 @@ Equipment.destroy_all
 
 title = scraping_title
 
+
 a = (2000..10000).to_a
 
 links = [
@@ -22,11 +23,11 @@ links = [
   "https://source.unsplash.com/DIGO6xmZ5jg",
   "https://source.unsplash.com/FpYX2jXImNk",
 ]
-# links[n]
 
 # 5.times do |n|
 5.times do |n|
 
+  file = URI.open(links[n])
   puts "Creating Equipment using seed..."
   equipment = Equipment.new(name: title.first[:name],
     description: title.first[:description],
@@ -34,10 +35,8 @@ links = [
     price_per_day: a.sample,
     user: User.last
     )
-  equipment.save!
-
-  file = URI.open(links[n])
   equipment.photo.attach(io: file, filename: "0000#{n}.png", content_type: 'image/png')
+  equipment.save!
 
   title.shift
 end
