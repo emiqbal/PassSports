@@ -29,3 +29,14 @@
   flex-grow: 1;
   align-items: center;
 }
+
+.card-main{
+  position: relative;
+}
+
+.card-username {
+  position: absolute;
+  right: 50px;
+  bottom: 20px;
+}
+
