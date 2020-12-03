@@ -1,17 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 require "open-uri"
 require_relative 'scraping'
-
+Rental.destroy_all
 Equipment.destroy_all
 
-title = scraping_title
 
+title = scraping_title
 a = (2000..10000).to_a
 
 links = [
@@ -37,5 +30,34 @@ links = [
 
   title.shift
 end
-
 puts "Seeding done"
+
+
+puts "Rental Seeding"
+5.times do |n|
+  # file = URI.open(links[n])
+  puts "Creating Rental using seed..."
+  rental = Rental.new(
+    start_date: DateTime.parse("#{n+1}/12/2020 17:00"),
+    end_date: DateTime.parse("#{n+2}/12/2020 17:00"),
+    price: a.sample,
+    user: User.all.sample
+    )
+  rental.equipment = Equipment.all.sample
+  rental.save!
+
+end
+puts "Rental Seeding done"
+
+
+#  create_table "rentals", force: :cascade do |t|
+#     t.integer "price"
+#     t.date "start_date"
+#     t.date "end_date"
+#     t.bigint "equipment_id", null: false
+#     t.bigint "user_id", null: false
+#     t.datetime "created_at", precision: 6, null: false
+#     t.datetime "updated_at", precision: 6, null: false
+#     t.index ["equipment_id"], name: "index_rentals_on_equipment_id"
+#     t.index ["user_id"], name: "index_rentals_on_user_id"
+#   end

@@ -1,5 +1,6 @@
 class Equipment < ApplicationRecord
   belongs_to :user
+  has_many :rentals, dependent: :destroy
   before_destroy :purge_photo
   has_many :rentals
 
