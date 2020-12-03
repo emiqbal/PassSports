@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'my-rentals', to: 'equipments#sale'
   resources :equipments, only: [:index, :show, :create, :new] do
     resources :rentals, only: [:new, :create] # nested in controller?
   end

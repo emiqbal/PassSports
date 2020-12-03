@@ -39,6 +39,9 @@ class EquipmentsController < ApplicationController
     end
   end
 
+  def sale
+  end
+
   private
 
   def equipment_params
