@@ -39,6 +39,14 @@ class EquipmentsController < ApplicationController
     end
   end
 
+  def sale
+    today = Date.today
+    @rentals = Rental.where(equipment: Equipment.where(user: current_user))
+    @future_rentals = @rentals.where("start_date > ?", today)
+    @past_rentals = @rentals.where("end_date < ?", today)
+    @current_rentals = @rentals.where("start_date < ? AND end_date > ?", today, today)
+  end
+
   private
 
   def equipment_params
