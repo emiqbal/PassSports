@@ -21,11 +21,11 @@
           </div>
           <div class='card-username'>
             <%= equipment.user.username unless equipment.user.username.nil? %>
-            <% if equipment.user.photo.nil?  %>
+<!--             <% if equipment.user.photo.nil?  %>
               <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png", height: 100, width: 100, crop: :fill, class: "avatar"  %>
             <% else %>
               <%= cl_image_tag equipment.user.photo.key, height: 100, width: 100, crop: :fill, class: "avatar" %>
-            <% end %>
+            <% end %> -->
           </div>
         </div>
       </div>
