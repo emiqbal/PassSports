@@ -28,3 +28,47 @@ def scraping_title
   end
   product_hash
 end
+
+def equipment_seed
+
+  product_title = ["DUMBBELL",
+    "KETTLEBELL",
+    "BENCH PRESS",
+    "RESISTANCE BANDS",
+    "PULL UP BAR",
+    "BADMINTON RACKET",
+    "SHUTTLECOCK",
+    "BADMINTON NET",
+    "TENNIS RACKET",
+    "TENNIS BALL",
+    "FOLDING STOOL",
+    "CAMPING TENT",
+    "FOLDING TABLE",
+    "SLEEPING BAG",
+    "TORCHLIGHT"]
+
+  product_cat = ["Gym",
+    "Gym",
+    "Gym",
+    "Gym",
+    "Gym",
+    "Racket",
+    "Racket",
+    "Racket",
+    "Racket",
+    "Racket",
+    "Camping",
+    "Camping",
+    "Camping",
+    "Camping",
+    "Camping"]
+
+  product_hash = []
+
+  product_title.each_with_index do |product, index|
+    product_hash << { name: product.capitalize,
+      description: "#{product.capitalize} is well maintained and in great condition. You will absolutely love it. Lorem ipsum dolor sit amet consectetur adipisicing, elit. Repellendus, saepe?",
+      category: product_cat[index] }
+  end
+  product_hash
+end
