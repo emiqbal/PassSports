@@ -1,8 +1,8 @@
 require "open-uri"
 require_relative 'scraping'
-
-Equipment.destroy_all
 Rental.destroy_all
+Equipment.destroy_all
+
 
 title = scraping_title
 a = (2000..10000).to_a
@@ -39,7 +39,7 @@ puts "Rental Seeding"
   puts "Creating Rental using seed..."
   rental = Rental.new(
     start_date: DateTime.parse("#{n+1}/12/2020 17:00"),
-    end_date: DateTime.parse("#{n+2}/12/2009 17:00"),
+    end_date: DateTime.parse("#{n+2}/12/2020 17:00"),
     price: a.sample,
     user: User.all.sample
     )
