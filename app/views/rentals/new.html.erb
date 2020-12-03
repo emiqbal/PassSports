@@ -5,11 +5,11 @@
          <%= simple_form_for([@equipment, @rental]) do |f| %>
              <%= f.input :start_date, as: :string, type: :text %>
              <%= f.input :end_date, as: :string, type: :text %>
-             <!-- <div> Total Price: $<span id = "total_price">0.00</span> </div> -->
+             <div> Total Price: $<span id = "total_price">0.00</span> </div>
              <%= f.submit "Rent", class: "btn btn-primary" %>
           <% end %>
       <% end %>
       <input type="hidden" id="price_per_day" value="<%= @equipment.price_per_day %>">
    </div>
 </div>
-<%#= javascript_pack_tag 'total_price', 'data-turbolinks-track': 'reload', defer: true %>
+<%= javascript_pack_tag 'total_price', 'data-turbolinks-track': 'reload', defer: true %>

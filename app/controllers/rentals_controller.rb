@@ -21,7 +21,6 @@ class RentalsController < ApplicationController
       redirect_to root_path
     else
       render :new
-      # new redirect to create new form
     end
   end
 
