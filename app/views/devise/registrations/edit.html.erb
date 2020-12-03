@@ -27,6 +27,7 @@
                   hint: "same here.",
                   required: false,
                   input_html: { autocomplete: "new-password" } %>
+      <%= f.input :photo, as: :file %>
       <%= f.button :submit, "Update", class: 'btn btn-primary' %>
       <% end %>
       <%= link_to "Back", :back, class: 'btn btn-primary' %>
