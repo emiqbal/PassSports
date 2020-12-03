@@ -1,16 +1,18 @@
 require 'open-uri'
 
 class EquipmentsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
-    @equipment = Equipment.all
+    if params[:query]
+      @equipments = Equipment.search_by_equipment(params[:query])
+    else
+      @equipments = Equipment.all
+    end
   end
 
   def show
     @equipment = Equipment.find(params[:id])
-  end
-
-  def equipment_params
-  params.require(:equipment).permit(:name, :description, :price_per_day, :photo)
   end
 
   def new
@@ -40,6 +42,6 @@ class EquipmentsController < ApplicationController
   private
 
   def equipment_params
-    params.require(:equipment).permit(:name, :description, :price_per_day, :photo)
+    params.require(:equipment).permit(:name, :description, :category, :price_per_day, :photo)
   end
 end

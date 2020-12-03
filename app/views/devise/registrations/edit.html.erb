@@ -1,5 +1,5 @@
 <div class="container col-6">
-  <h2 class='mt-3 container w-75 p-0'><strong>Edit <%= resource_name.to_s.humanize %></strong></h2>
+  <h2 class='mt-3 container w-75 p-0'><strong>Edit <%= resource_name.to_s.humanize %> Profile</strong></h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
@@ -10,8 +10,16 @@
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
-
+      <%= f.input :username,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "username" }%>
+      <%= f.input :current_password,
+                  hint: "Psst...don't worry we're just checking. 😉",
+                  required: true,
+                  input_html: { autocomplete: "current-password" } %>
       <%= f.input :password,
+                  label: 'New Password',
                   hint: "leave this as a blank space if not in use. just like taylor swift.",
                   required: false,
                   input_html: { autocomplete: "new-password" } %>
@@ -19,19 +27,16 @@
                   hint: "same here.",
                   required: false,
                   input_html: { autocomplete: "new-password" } %>
-      <%= f.input :current_password,
-                  hint: "Psst...don't worry we're just checking. 😉",
-                  required: true,
-                  input_html: { autocomplete: "current-password" } %>
+      <%= f.input :photo, as: :file %>
       <%= f.button :submit, "Update", class: 'btn btn-primary' %>
       <% end %>
+      <%= link_to "Back", :back, class: 'btn btn-primary' %>
   </div>
 
-  <div class="form-login container mb-3 w-75">
-    <h3><strong>Cancel my account</strong></h3>
+  <h3 class="mt-3 container w-75 p-0"><strong>Delete my account</strong></h3>
+  <div class="form-login container pb-1 mb-3 mt-0 w-75">
 
-    <p>Hate sports? <%= link_to "Cancel your account.", user_registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %></p>
+  <%= link_to "Delete my account", registration_path(resource_name), data: { confirm: "This process is irreversible. Are you sure?" }, method: :delete, class: 'btn btn-danger my-0' %></p>
 
-    <%= link_to "Back", :back, class: 'btn btn-primary' %>
   </div>
 </div>
