@@ -4,7 +4,11 @@ class EquipmentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @equipment = Equipment.all
+    if params[:query]
+      @equipments = Equipment.search_by_equipment(params[:query])
+    else
+      @equipments = Equipment.all
+    end
   end
 
   def show
