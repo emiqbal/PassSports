@@ -1,5 +1,5 @@
 .card-product {
-  overflow: hidden;
+  overflow: hidden
   height: 150px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -28,4 +28,11 @@
 .card-product-infos {
   flex-grow: 1;
   align-items: center;
+}
+
+.card-username {
+  right: 0px;
+  bottom: 0px;
+
+
 }
