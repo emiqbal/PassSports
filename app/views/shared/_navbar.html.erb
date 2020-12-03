@@ -20,7 +20,7 @@
             <%= image_tag "https://www.flaticon.com/svg/static/icons/svg/599/599305.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
 
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Login", new_user_session_path, class: "nav-link btn-primary dropdown-item" %>
+            <%= link_to "Login", new_user_session_path, class: "btn btn-primary dropdown-item" %>
           </div>
         <% else %>
 
@@ -34,7 +34,7 @@
         <% end %>
         <% else %>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link btn-primary" %>
+          <%= link_to "Login", new_user_session_path, class: "btn btn-primary" %>
         </li>
       <% end %>
       </div>
