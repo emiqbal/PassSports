@@ -7,10 +7,12 @@
 <div class="row">
   <div class="col-sm-12 col-md-12">
 
-    <h3>Current Rental</h3>
+    <div class = "mt-4">
+      <h3>Current Rentals</h3>
+    </div>
       <% if @current_rentals.exists? %>
         <%# <h3>Current Rental</h3> %>
-        <% @current_rentals.each do |rental| %>          
+        <% @current_rentals.each do |rental| %>
           <div class = "my-4">
             <div class="card-product">
               <%= cl_image_tag rental.equipment.photo.key, crop: :fill %>
@@ -31,10 +33,10 @@
           </div>
       <% end %>
 
-    <h3>Future Rental</h3>
+    <h3>Future Rentals</h3>
       <% if @future_rentals.exists? %>
         <%# <h3>Current Rental</h3> %>
-        <% @future_rentals.each do |rental| %>          
+        <% @future_rentals.each do |rental| %>
           <div class = "my-4">
             <div class="card-product">
               <%= cl_image_tag rental.equipment.photo.key, crop: :fill %>
@@ -54,9 +56,12 @@
             </div>
           </div>
       <% end %>
-         
-      <h3>Past Rental</h3>
-        <% @past_rentals.each do |rental| %>          
+
+      <div class = "mb-4">
+      <h3>Past Rentals</h3>
+      </div>
+        <% if @past_rentals.exists? %>
+        <% @past_rentals.each do |rental| %>
           <div class = "my-4">
             <div class="card-product">
               <%= cl_image_tag rental.equipment.photo.key, crop: :fill %>
@@ -67,6 +72,14 @@
             </div>
           </div>
         <% end %>
+      <% else %>
+        <div class="card-product mb-4">
+          <div class="card-product-infos">
+            <h6><strong>You have no past bookings. Book now</strong></h6>
+          </div>
+        </div>
+      </div>
+    <% end %>
 
     </div>
 </div>
