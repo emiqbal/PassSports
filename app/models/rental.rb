@@ -1,7 +1,7 @@
 class Rental < ApplicationRecord
   belongs_to :equipment
   belongs_to :user
-
+  
   # validate :end_date_before_start_date
 
   # def end_date_before_start_date
