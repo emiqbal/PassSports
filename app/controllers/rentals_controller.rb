@@ -1,11 +1,11 @@
 class RentalsController < ApplicationController
-  
+
   def index  #this is all rentals here current user = user
     today = Date.today
-    @rentals = Rental.where(user: current_user) 
-    @future_rentals = @rentals.where("start_date > ?", today) 
-    @past_rentals = @rentals.where("end_date < ?", today) 
-    @current_rentals = @rentals.where("start_date < ? AND end_date > ?", today, today ) 
+    @rentals = Rental.where(user: current_user)
+    @future_rentals = @rentals.where("start_date > ?", today)
+    @past_rentals = @rentals.where("end_date < ?", today)
+    @current_rentals = @rentals.where("start_date < ? AND end_date > ?", today, today )
   end
 
 
@@ -15,7 +15,7 @@ class RentalsController < ApplicationController
     @rental = Rental.new
   end
 
-  
+
   def create
     @rental = Rental.new(rental_params)
     @rental.user = current_user
@@ -24,8 +24,7 @@ class RentalsController < ApplicationController
     price_per_day = @rental.equipment.price_per_day
     @rental.price = price_per_day * days
     if @rental.save
-      # TODO: redirect to rental show page
-      redirect_to root_path
+      redirect_to rentals_path
     else
       render :new
     end
