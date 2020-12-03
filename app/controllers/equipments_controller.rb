@@ -1,16 +1,14 @@
 require 'open-uri'
 
 class EquipmentsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @equipment = Equipment.all
   end
 
   def show
     @equipment = Equipment.find(params[:id])
-  end
-
-  def equipment_params
-  params.require(:equipment).permit(:name, :description, :price_per_day, :photo)
   end
 
   def new
