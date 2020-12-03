@@ -5,6 +5,7 @@
     <%= simple_form_for(@equipment, as: :equipment, method: :post, url: equipments_path) do |f| %>
      <%= f.input :name %>
      <%= f.input :description %>
+     <%= f.input :category, collection: %w(Gym Racket Camping) %>
      <%= f.input :price_per_day, label: 'Price per Day in $' %>
      <%= f.input :photo, as: :file %>
      <%= f.submit "Post", class: "btn btn-primary" %>
