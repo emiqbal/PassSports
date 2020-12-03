@@ -2,8 +2,8 @@
   <div class="container">
     <h1>Your <strong>Passport</strong> to <strong>all Sports</strong></h1>
     <p>Play anything, we've got you</p>
-    
- 
+
+
   </div>
 </div>
 
@@ -21,8 +21,11 @@
           </div>
           <div class='card-username'>
             <%= equipment.user.username unless equipment.user.username.nil? %>
+            <% unless equipment.user.photo.key.nil? %>
+            <%= cl_image_tag equipment.user.photo.key, height: 100, width: 100, crop: :fill, class: "avatar" %>
           </div>
         </div>
       </div>
     <% end %>
   <% end %>
+<% end %>
