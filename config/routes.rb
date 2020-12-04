@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   get 'my-rentals', to: 'equipments#sale'
+  get 'my-listings', to: 'equipments#list'
+
   resources :equipments, only: [:index, :show, :create, :new] do
     resources :rentals, only: [:new, :create] # nested in controller?
   end
+
   resources :rentals, only: [:index]
   devise_for :users
   root to: 'equipments#index'
