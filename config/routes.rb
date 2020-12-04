@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'my-rentals', to: 'equipments#sale'
+  get 'my-sales', to: 'equipments#sale'
   get 'my-listings', to: 'equipments#list'
 
   resources :equipments, only: [:index, :show, :create, :new] do

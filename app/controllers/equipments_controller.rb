@@ -40,8 +40,8 @@ class EquipmentsController < ApplicationController
   end
 
   def list
-   @equipment = Equipment.where(user: current_user)
-  end 
+   @equipment = Equipment.where(user: current_user).order(updated_at: :desc)
+  end
 
 
   def sale
@@ -49,7 +49,7 @@ class EquipmentsController < ApplicationController
     @rentals = Rental.where(equipment: Equipment.where(user: current_user)).order(end_date: :desc)
     @future_rentals = @rentals.where("start_date > ?", today)
     @past_rentals = @rentals.where("end_date < ?", today)
-    @current_rentals = @rentals.where("start_date < ? AND end_date > ?", today, today)
+    @current_rentals = @rentals.where("start_date <= ? AND end_date >= ?", today, today)
   end
 
   private

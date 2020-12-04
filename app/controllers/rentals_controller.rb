@@ -2,7 +2,7 @@ class RentalsController < ApplicationController
 
   def index  #this is all rentals here current user = user
     today = Date.today
-    @rentals = Rental.where(user: current_user)
+    @rentals = Rental.where(user: current_user).order(end_date: :desc)
     @future_rentals = @rentals.where("start_date > ?", today)
     @past_rentals = @rentals.where("end_date < ?", today)
     @current_rentals = @rentals.where("start_date <= ? AND end_date >= ?", today, today)

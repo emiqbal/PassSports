@@ -24,9 +24,9 @@
             <div class="text-center"><%= current_user.username unless current_user.nil? %></div>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "My Equipments", "#", class: "dropdown-item" %>
-              <%= link_to "My Sales", my_rentals_path, class: "dropdown-item" %>
-              <%= link_to "My Rental", rentals_path, class: "dropdown-item" %>
+              <%= link_to "My Equipments", my_listings_path, class: "dropdown-item" %>
+              <%= link_to "My Sales", my_sales_path, class: "dropdown-item" %>
+              <%= link_to "My Rentals", rentals_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
 
             </div>
