@@ -1,7 +1,7 @@
 <div class='container col-6'>
 <h2><strong>Log in</strong></h2>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), remote: true ) do |f| %>
   <div class="form-login container mt-0">
     <%= f.input :email,
                 required: false,
