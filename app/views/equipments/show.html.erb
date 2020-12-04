@@ -7,13 +7,13 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-12 col-lg-8">
-        <%= cl_image_tag @equipment.photo.key, crop: :fill, width: 720, height: 480 %>
+      <div class="col-12 col-lg-8 col-m-4">
+        <%= cl_image_tag @equipment.photo.key, crop: :fill, width: 640, height: 420 %>
          <h3><%= @equipment.name %></h3>
           <p><%= @equipment.description %></p>
       </div>
-      <div class="col-12 col-lg-4">
-        <table class="table">
+      <div class="col-12 col-lg-4 col-m-2">
+        <table class="table ml-4" >
           <tbody>
             <%# <tr>
               <th scope="row">Avaliability</th>
@@ -25,7 +25,7 @@
             </tr>
           </tbody>
         </table>
-          <div>
+          <div class = "ml-4">
             <%= link_to "Rent", new_equipment_rental_path(@equipment), class: 'btn btn-primary mb-3' %>
           </div>
       </div>
