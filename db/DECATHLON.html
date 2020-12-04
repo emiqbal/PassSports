@@ -70,10 +70,10 @@ setTimeout("prestashop.emit('updateCart', {reason: {linkAction: 'refresh'}, resp
 // iqitcompare
 if (typeof iqitcompare !== 'undefined') $('#iqitcompare-nb').text(iqitcompare.nbProducts);
 // iqitcookielaw
-function getCookie(cname) {   
+function getCookie(cname) {
 	var name = cname + "=";
 	var ca = document.cookie.split(';');
-	for(var i=0; i!=ca.length; i++) { 
+	for(var i=0; i!=ca.length; i++) {
 		var c = ca[i];
 		while (c.charAt(0)==' ') c = c.substring(1);
 		if (c.indexOf(name) != -1) return c.substring(name.length,c.length);
@@ -184,7 +184,7 @@ if (typeof iqitwishlist !== 'undefined') $('#iqitwishlist-nb').text(iqitwishlist
     var domain = "decathlon.sg";
     var y_account = "YT-000047-1";
 
-    var _y_account = y_account; 
+    var _y_account = y_account;
     window.WTTAG_BEFORE_ONLOAD=true;
 
     window.ytrackAsyncInit = function(){
@@ -217,10 +217,10 @@ if (typeof iqitwishlist !== 'undefined') $('#iqitwishlist-nb').text(iqitwishlist
               _wt1Q.push(["setVisitorParam", "_PmId", _PM_ID]);
               // Push source and sub-source to tracker
               _wt1Q.push(["setVisitorParam", "_PmSrc", _PM_SRC]);
-              
-        }   
 
-        _wt1Q.push(["setSessionParam", "_env_channel",]);  
+        }
+
+        _wt1Q.push(["setSessionParam", "_env_channel",]);
         _wt1Q.push(["setSessionParam", "_product_unitprice_tf",]);
         _wt1Q.push(["setSessionParam", "_env_language",]);
         _wt1Q.push(["setSessionParam", "_env_template",]);
