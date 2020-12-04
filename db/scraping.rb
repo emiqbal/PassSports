@@ -28,3 +28,35 @@ def scraping_title
   end
   product_hash
 end
+
+def equipment_seed
+
+  product_title = ["DUMBBELL",
+    "KETTLEBELL",
+    "PULLUP BAR",
+    "BADMINTON RACKET",
+    "SHUTTLECOCK",
+    "TENNIS BALL",
+    "CAMPING TENT",
+    "SLEEPING BAG",
+    "TORCHLIGHT"]
+
+  product_cat = ["Gym",
+    "Gym",
+    "Gym",
+    "Racket",
+    "Racket",
+    "Racket",
+    "Camping",
+    "Camping",
+    "Camping"]
+
+  product_hash = []
+
+  product_title.each_with_index do |product, index|
+    product_hash << { name: product.capitalize,
+      description: "#{product.capitalize} is well maintained and in great condition. You will absolutely love it. Lorem ipsum dolor sit amet consectetur adipisicing, elit. Repellendus, saepe?",
+      category: product_cat[index] }
+  end
+  product_hash
+end
