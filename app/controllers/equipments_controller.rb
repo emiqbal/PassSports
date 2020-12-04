@@ -39,6 +39,11 @@ class EquipmentsController < ApplicationController
     end
   end
 
+  def list
+   @equipment = Equipment.where(user: current_user)
+  end 
+
+
   def sale
     today = Date.today
     @rentals = Rental.where(equipment: Equipment.where(user: current_user)).order(end_date: :desc)

@@ -13,6 +13,7 @@
       <% if @current_rentals.exists? %>
         <%# <h3>Current Rental</h3> %>
         <% @current_rentals.each do |rental| %>
+       
           <div class = "my-4">
             <div class="card-product">
               <%= cl_image_tag rental.equipment.photo.key, crop: :fill %>
@@ -23,6 +24,7 @@
             </div>
           </div>
         <% end %>
+     
       <% else %>
           <div class = "my-4">
             <div class="card-product">
@@ -56,6 +58,7 @@
             </div>
           </div>
       <% end %>
+        
 
       <div class = "mb-4">
       <h3>Past Rentals</h3>
