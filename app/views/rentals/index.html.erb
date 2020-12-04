@@ -41,7 +41,7 @@
         <% @future_rentals.each do |rental| %>
           <div class = "my-4">
             <div class="card-product">
-              <%= cl_image_tag rental.equipment.photo.key, crop: :fill %>
+              <%= cl_image_tag rental.equipment.photo.key, crop: :fill, class: "product-image" %>
               <div class="card-product-infos">
                 <h6><strong>Rental Period:</strong></h6>
                 <p><%= "#{rental.start_date.strftime('%d-%b-%Y')} to #{rental.end_date.strftime('%d-%b-%Y')}" %></p>
@@ -67,7 +67,7 @@
         <% @past_rentals.each do |rental| %>
           <div class = "my-4">
             <div class="card-product">
-              <%= cl_image_tag rental.equipment.photo.key, crop: :fill %>
+              <%= cl_image_tag rental.equipment.photo.key, crop: :fill, class: "product-image" %>
               <div class="card-product-infos">
                 <h6><strong>Rental Period:</strong></h6>
                 <p><%= "#{rental.start_date.strftime('%d-%b-%Y')} to #{rental.end_date.strftime('%d-%b-%Y')}" %></p>
