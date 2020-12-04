@@ -30,7 +30,7 @@ links = [
   "https://source.unsplash.com/FpYX2jXImNk",
 ]
 
-15.times do |n|
+9.times do |n|
 
   puts "Creating Equipment using seed..."
   equipment = Equipment.new(name: title.first[:name],
