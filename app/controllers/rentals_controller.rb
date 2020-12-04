@@ -5,9 +5,8 @@ class RentalsController < ApplicationController
     @rentals = Rental.where(user: current_user)
     @future_rentals = @rentals.where("start_date > ?", today)
     @past_rentals = @rentals.where("end_date < ?", today)
-    @current_rentals = @rentals.where("start_date < ? AND end_date > ?", today, today )
+    @current_rentals = @rentals.where("start_date <= ? AND end_date >= ?", today, today)
   end
-
 
   def new
     @equipment = Equipment.find(params[:equipment_id])
