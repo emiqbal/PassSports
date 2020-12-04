@@ -7,6 +7,7 @@
   align-items: center;
   border-radius: 5px;
   text-transform: capitalize;
+  position: relative;
   img {
     height: 100%;
     width: 30%;
@@ -28,10 +29,6 @@
 .card-product-infos {
   flex-grow: 1;
   align-items: center;
-}
-
-.card-main{
-  position: relative;
 }
 
 .card-username {
