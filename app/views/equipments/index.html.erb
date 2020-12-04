@@ -14,7 +14,7 @@
     <%= link_to equipment_path(equipment) do %>
       <div class = "card-main my-4">
         <div class="card-product">
-           <%= cl_image_tag equipment.photo.key, crop: :fill %>
+           <%= cl_image_tag equipment.photo.key, crop: :fill, class: "product-image" %>
             <div class="card-product-infos">
               <h4><%= equipment.name %></h4>
               <p>$<strong><%= equipment.price_per_day / 100 %></strong> per day</p>

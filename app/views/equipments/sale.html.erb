@@ -9,7 +9,7 @@
           <% @current_rentals.each do |rental| %>
             <div class = "my-4">
               <div class="card-product">
-                <%= cl_image_tag rental.equipment.photo.key, crop: :fill %>
+                <%= cl_image_tag rental.equipment.photo.key, crop: :fill, class: "product-image" %>
                 <div class="card-product-infos">
                   <h6><strong><%= rental.equipment.name %></strong></h6>
                   <h6><strong>Rental Period:</strong></h6>
