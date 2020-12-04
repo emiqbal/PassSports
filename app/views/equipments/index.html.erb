@@ -21,11 +21,17 @@
             </div>
           <div class='card-username'>
             <%= equipment.user.username unless equipment.user.username.nil? %>
+            <% if equipment.user.photo.attached? %>
+            <%= cl_image_tag equipment.user.photo.key, height: 50, width: 50, crop: :fill, class: "avatar-small" %>
+            <% else %>
+            <%= image_tag "https://www.flaticon.com/svg/static/icons/svg/599/599305.svg", height: 50, width: 50, crop: :fill, class: "avatar-small" %>
+            <% end %>
           </div>
         </div>
       </div>
     <% end %>
   <% end %>
+
 
 
 
