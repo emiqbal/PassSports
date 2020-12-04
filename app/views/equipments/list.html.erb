@@ -8,7 +8,7 @@
         <% @equipment.each do |e| %>
           <div class = "my-4">
             <div class="card-product">
-              <%= cl_image_tag e.photo.key, crop: :fill %>
+              <%= cl_image_tag e.photo.key, crop: :fill, class: "product-image" %>
               <div class="card-product-infos">
                 <h6><strong><%= e.name %></strong></h6>
                 <p><%= e.description %></p>

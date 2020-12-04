@@ -13,10 +13,10 @@
       <% if @current_rentals.exists? %>
         <%# <h3>Current Rental</h3> %>
         <% @current_rentals.each do |rental| %>
-       
+
           <div class = "my-4">
             <div class="card-product">
-              <%= cl_image_tag rental.equipment.photo.key, crop: :fill %>
+              <%= cl_image_tag rental.equipment.photo.key, crop: :fill, class: "product-image" %>
               <div class="card-product-infos">
                 <h6><strong>Rental Period:</strong></h6>
                 <p><%= "#{rental.start_date.strftime('%d-%b-%Y')} to #{rental.end_date.strftime('%d-%b-%Y')}" %></p>
@@ -24,7 +24,7 @@
             </div>
           </div>
         <% end %>
-     
+
       <% else %>
           <div class = "my-4">
             <div class="card-product">
@@ -58,7 +58,7 @@
             </div>
           </div>
       <% end %>
-        
+
 
       <div class = "mb-4">
       <h3>Past Rentals</h3>
