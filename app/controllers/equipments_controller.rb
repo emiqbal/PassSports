@@ -5,9 +5,9 @@ class EquipmentsController < ApplicationController
 
   def index
     if params[:query]
-      @equipments = Equipment.search_by_equipment(params[:query])
+      @equipments = Equipment.search_by_equipment(params[:query]).order(updated_at: :desc)
     else
-      @equipments = Equipment.all
+      @equipments = Equipment.all.order(updated_at: :desc)
     end
   end
 
@@ -41,7 +41,7 @@ class EquipmentsController < ApplicationController
 
   def sale
     today = Date.today
-    @rentals = Rental.where(equipment: Equipment.where(user: current_user))
+    @rentals = Rental.where(equipment: Equipment.where(user: current_user)).order(end_date: :desc)
     @future_rentals = @rentals.where("start_date > ?", today)
     @past_rentals = @rentals.where("end_date < ?", today)
     @current_rentals = @rentals.where("start_date < ? AND end_date > ?", today, today)
