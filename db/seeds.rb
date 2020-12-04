@@ -7,19 +7,19 @@ Equipment.destroy_all
 
 # Create Users (If you want a clean slate of users, uncomment User.destroy_all)
 
-# profile = 'https://www.flaticon.com/svg/static/icons/svg/599/599305.svg'
+profile = 'https://www.flaticon.com/svg/static/icons/svg/599/599305.svg'
 
-# 1.times do |n|
-#   pic = URI.open(profile)
-#   puts "Creating user#{n} using seed..."
-#   user = User.new(username: "user#{n}",
-#     email: "user#{n}@gmail.com",
-#     password: "123456")
+1.times do |n|
+  pic = URI.open(profile)
+  puts "Creating user#{n} using seed..."
+  user = User.new(username: "user#{n}",
+    email: "user#{n}@gmail.com",
+    password: "123456")
 
-#   user.photo.attach(io: pic, filename: "pic#{n}.png", content_type: 'image/png')
-#   user.save!
-# end
-# puts "User Seeding done"
+  user.photo.attach(io: pic, filename: "pic#{n}.png", content_type: 'image/png')
+  user.save!
+end
+puts "User Seeding done"
 
 # Create Equipment (Will destroy current equipment)
 
