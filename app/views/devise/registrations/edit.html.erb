@@ -1,7 +1,7 @@
 <div class="container col-6">
   <h2 class='mt-3 container w-75 p-0'><strong>Edit <%= resource_name.to_s.humanize %> Profile</strong></h2>
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, remote: true ) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-login w-75 container mt-0">
@@ -27,7 +27,7 @@
                   hint: "same here.",
                   required: false,
                   input_html: { autocomplete: "new-password" } %>
-      <%= f.input :photo, as: :file %>
+      <%= f.input :photo, label: 'Update Photo', as: :file %>
       <%= f.button :submit, "Update", class: 'btn btn-primary' %>
       <% end %>
       <%= link_to "Back", :back, class: 'btn btn-primary' %>
@@ -36,7 +36,7 @@
   <h3 class="mt-3 container w-75 p-0"><strong>Delete my account</strong></h3>
   <div class="form-login container pb-1 mb-3 mt-0 w-75">
 
-  <%= link_to "Delete my account", registration_path(resource_name), data: { confirm: "This process is irreversible. Are you sure?" }, method: :delete, class: 'btn btn-danger my-0' %></p>
+  <%= link_to "Delete my account", registration_path(resource), data: { confirm: "This process is irreversible. Are you sure?" }, method: :delete, class: 'btn btn-danger my-0' %></p>
 
   </div>
 </div>
