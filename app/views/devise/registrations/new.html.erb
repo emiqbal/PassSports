@@ -1,0 +1,36 @@
+
+<div class="container col-6">
+<h2 class='mt-3'><strong>Sign up</strong></h2>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-login container mt-0">
+    <%= f.input :username,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "username" }%>
+    <%= f.input :email,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "email" }%>
+    <%= f.input :password,
+                required: true,
+                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :password_confirmation,
+                required: true,
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :photo, as: :file %>
+    <!-- ask about how to link this file to navbar avatar, and option to edit navbar photo in edit profile. And what does it have to do with cloudinary?
+    also ascreating heroku and cloudinary -->
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up", class: "btn-primary mt-3" %>
+    <%= render "devise/shared/links" %>
+  </div>
+<% end %>
+</div>
+

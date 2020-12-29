@@ -1,0 +1,88 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://secureprintportal.s3.us-west-1.amazonaws.com/production/assets/5966561450122033bd4456f8/imageLocker/blog-description/5f11c366a53d4d3a831471de/blog/sports_banners.png);">
+  <div class="container">
+    <h1> <strong>Your Rentals</strong></h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12 col-md-12">
+
+    <div class = "mt-4">
+      <h3>Current Rentals</h3>
+    </div>
+      <% if @current_rentals.exists? %>
+        <%# <h3>Current Rental</h3> %>
+        <% @current_rentals.each do |rental| %>
+
+          <div class = "my-4">
+            <div class="card-product">
+              <%= cl_image_tag rental.equipment.photo.key, crop: :fill, class: "product-image" %>
+              <div class="card-product-infos">
+                <h6><strong>Rental Period:</strong></h6>
+                <p><%= "#{rental.start_date.strftime('%d-%b-%Y')} to #{rental.end_date.strftime('%d-%b-%Y')}" %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+      <% else %>
+          <div class = "my-4">
+            <div class="card-product">
+              <div class="card-product-infos">
+                <h6><strong>There are no active rentals ongoing</strong></h6>
+              </div>
+            </div>
+          </div>
+      <% end %>
+
+    <h3>Future Rentals</h3>
+      <% if @future_rentals.exists? %>
+        <%# <h3>Current Rental</h3> %>
+        <% @future_rentals.each do |rental| %>
+          <div class = "my-4">
+            <div class="card-product">
+              <%= cl_image_tag rental.equipment.photo.key, crop: :fill, class: "product-image" %>
+              <div class="card-product-infos">
+                <h6><strong>Rental Period:</strong></h6>
+                <p><%= "#{rental.start_date.strftime('%d-%b-%Y')} to #{rental.end_date.strftime('%d-%b-%Y')}" %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+          <div class = "my-4">
+            <div class="card-product">
+              <div class="card-product-infos">
+                <h6><strong>You have no upcoming bookings. Book now</strong></h6>
+              </div>
+            </div>
+          </div>
+      <% end %>
+
+
+      <div class = "mb-4">
+      <h3>Past Rentals</h3>
+      </div>
+        <% if @past_rentals.exists? %>
+        <% @past_rentals.each do |rental| %>
+          <div class = "my-4">
+            <div class="card-product">
+              <%= cl_image_tag rental.equipment.photo.key, crop: :fill, class: "product-image" %>
+              <div class="card-product-infos">
+                <h6><strong>Rental Period:</strong></h6>
+                <p><%= "#{rental.start_date.strftime('%d-%b-%Y')} to #{rental.end_date.strftime('%d-%b-%Y')}" %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="card-product mb-4">
+          <div class="card-product-infos">
+            <h6><strong>You have no past bookings. Book now</strong></h6>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    </div>
+</div>

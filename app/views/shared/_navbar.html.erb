@@ -1,0 +1,39 @@
+
+<div class="navbar sticky-top navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="d-flex">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "https://www.flaticon.com/svg/static/icons/svg/2964/2964514.svg" %>
+    <% end %>
+    <form class="form-inline" action="/equipments">
+      <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success mr-sm-2" type="submit">Search</button>
+      <% if user_signed_in? %>
+        <%= link_to "Add New Equipment", new_equipment_path, class: "btn btn-outline-primary ml-0 mr-2 form-control nav-item", style: "width: auto;" %>
+      <% end %>
+    </form>
+  </div>
+
+    <div class="navbar-nav">
+      <div class="nav-item dropdown">
+        <% if user_signed_in? %>
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag "https://www.flaticon.com/svg/static/icons/svg/599/599305.svg", crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
+            <div class="text-center"><%= current_user.username unless current_user.nil? %></div>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "My Equipments", my_listings_path, class: "dropdown-item" %>
+              <%= link_to "My Sales", my_sales_path, class: "dropdown-item" %>
+              <%= link_to "My Rentals", rentals_path, class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "btn btn-primary" %>
+          </li>
+        <% end %>
+      </div>
+    </div>
+  </div>

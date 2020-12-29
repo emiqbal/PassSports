@@ -1,0 +1,30 @@
+<h1>My Equipments listed for Rental</h1>
+
+<div class="row">
+  <div class="col-sm-12 col-md-12">
+
+    <h3>Current List</h3>
+      <% if @equipment.exists? %>
+        <% @equipment.each do |e| %>
+          <div class = "my-4">
+            <div class="card-product">
+              <%= cl_image_tag e.photo.key, crop: :fill, class: "product-image" %>
+              <div class="card-product-infos">
+                <h6><strong><%= e.name %></strong></h6>
+                <p><%= e.description %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+          <div class = "my-4">
+            <div class="card-product">
+              <div class="card-product-infos">
+                <h6><strong>You have no listings for rental</strong></h6>
+              </div>
+            </div>
+          </div>
+      <% end %>
+
+    </div>
+</div>

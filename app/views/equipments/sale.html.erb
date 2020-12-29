@@ -1,0 +1,89 @@
+<div class="container col-10">
+  <h1>Sales of My Equipment</h1>
+
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+
+      <h3>Current Rentals</h3>
+        <% if @current_rentals.exists? %>
+          <% @current_rentals.each do |rental| %>
+            <div class = "my-4">
+              <div class="card-product">
+                <%= cl_image_tag rental.equipment.photo.key, crop: :fill, class: "product-image" %>
+                <div class="card-product-infos">
+                  <h6><strong><%= rental.equipment.name %></strong></h6>
+                  <h6><strong>Rental Period:</strong></h6>
+                  <p><%= "#{rental.start_date.strftime('%d-%b-%Y')} to #{rental.end_date.strftime('%d-%b-%Y')}" %></p>
+                  <h6><strong>Rented By:</strong></h6>
+                  <p><%= rental.user.username %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+            <div class = "my-4">
+              <div class="card-product">
+                <div class="card-product-infos">
+                  <h6><strong>There are no active rentals ongoing.</strong></h6>
+                </div>
+              </div>
+            </div>
+        <% end %>
+
+      <h3>Future Rentals</h3>
+        <% if @future_rentals.exists? %>
+          <% @future_rentals.each do |rental| %>
+            <div class = "my-4">
+              <div class="card-product">
+                <%= cl_image_tag rental.equipment.photo.key, crop: :fill, class: "product-image" %>
+                <div class="card-product-infos">
+                  <h5><strong><%= rental.equipment.name %></strong></h5>
+                  <p><strong>Rental Period:</strong>
+                  <%= "#{rental.start_date.strftime('%d %b %Y')} to #{rental.end_date.strftime('%d %b %Y')}" %></p>
+                  <p><strong>Rented By:</strong>
+                  <%= rental.user.username %></p>
+                  <p><strong>Total Price:</strong>
+                  $<%= rental.price / 100 %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+            <div class = "my-4">
+              <div class="card-product">
+                <div class="card-product-infos">
+                  <h6><strong>There are no upcoming bookings.</strong></h6>
+                </div>
+              </div>
+            </div>
+        <% end %>
+
+        <h3>Past Rentals</h3>
+        <% if @past_rentals.exists? %>
+          <% @past_rentals.each do |rental| %>
+            <div class = "my-4">
+              <div class="card-product">
+                <%= cl_image_tag rental.equipment.photo.key, crop: :fill, class: "product-image" %>
+                <div class="card-product-infos">
+                  <h6><strong><%= rental.equipment.name %></strong></h6>
+                  <h6><strong>Rental Period:</strong></h6>
+                  <p><%= "#{rental.start_date.strftime('%d-%b-%Y')} to #{rental.end_date.strftime('%d-%b-%Y')}" %></p>
+                  <h6><strong>Rented By:</strong></h6>
+                  <p><%= rental.user.username %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <div class = "my-4">
+            <div class="card-product">
+              <div class="card-product-infos">
+                <h6><strong>There are no past bookings.</strong></h6>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+  </div>
+</div>
