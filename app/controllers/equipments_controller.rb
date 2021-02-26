@@ -26,13 +26,12 @@ class EquipmentsController < ApplicationController
     @equipment.price_per_day *= 100
 
     if @equipment.save
-       if equipment_params[:photo].nil?
-        query = @equipment.name.split(' ').join(',')
+      if equipment_params[:photo].nil?
+        query = @equipment.name.split.join(',')
         url = "https://source.unsplash.com/720x480/?#{query}"
-        image = URI.open(url)
+        image = URI.parse(url).open
         @equipment.photo.attach(io: image, filename: "equipment_#{@equipment.id}.jpeg", content_type: 'image/jpeg')
-        # use unsplash
-        end
+      end
       redirect_to equipment_path(@equipment)
     else
       render :new
@@ -40,9 +39,8 @@ class EquipmentsController < ApplicationController
   end
 
   def list
-   @equipment = Equipment.where(user: current_user).order(updated_at: :desc)
+    @equipment = Equipment.where(user: current_user).order(updated_at: :desc)
   end
-
 
   def sale
     today = Date.today
