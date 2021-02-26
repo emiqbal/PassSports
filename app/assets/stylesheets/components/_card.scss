@@ -8,11 +8,13 @@
   border-radius: 5px;
   text-transform: capitalize;
   position: relative;
+
   img.product-image {
     height: 100%;
     width: 30%;
     object-fit: cover;
   }
+
   p {
     font-size: 16px;
     line-height: 1.4;

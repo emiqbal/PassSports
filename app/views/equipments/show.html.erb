@@ -1,36 +1,27 @@
-<%# <h1>Equipments#show</h1> %>
-<%# <p>Find me in app/views/equipments/show.html.erb</p> %>
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-       <%= link_to "Back to Listing", equipments_path, class: 'btn btn-primary mb-3' %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-lg-8 col-m-4">
-        <%= cl_image_tag @equipment.photo.key, crop: :fill, width: 640, height: 420 %>
-         <h3><%= @equipment.name %></h3>
-          <p><%= @equipment.description %></p>
-      </div>
-      <div class="col-12 col-lg-4 col-m-2">
-        <table class="table ml-4" >
-          <tbody>
-            <%# <tr>
-              <th scope="row">Avaliability</th>
-              <% <td><%= @equipment.available %>
-            <%# </tr> %>
-            <tr>
-              <th>Price</th>
-              <td>$<%= @equipment.price_per_day / 100 %></td>
-            </tr>
-          </tbody>
-        </table>
-          <div class = "ml-4">
-            <%= link_to "Rent", new_equipment_rental_path(@equipment), class: 'btn btn-primary mb-3' %>
-          </div>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
     </div>
   </div>
-    <!--   <div class="p-4 mr-5"> -->
-            <%# <%= link_to "Rent", XXX_path %>
-       <!--  </div> -->
+  <div class="row">
+    <div class="col-12 col-lg-8 col-m-4">
+      <%= cl_image_tag @equipment.photo.key, crop: :fill, width: 640, height: 420 %>
+    </div>
+    <div class="col-12 col-lg-4 col-m-2">
+      <table class="table" >
+        <tbody>
+          <tr>
+            <h3><%= @equipment.name %></h3>
+            <p><%= @equipment.description %></p>
+            <th>Price</th>
+            <td>$<%= @equipment.price_per_day / 100 %></td>
+          </tr>
+        </tbody>
+      </table>
+        <div>
+          <%= link_to "Rent", new_equipment_rental_path(@equipment), class: 'btn btn-primary mb-3' %>
+          <%= link_to "Back to Listing", equipments_path, class: 'btn btn-primary mb-3' %>
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,24 +1,8 @@
-# PassSports
+# PassSports-2
 
-PassSports is a Web App written with the Ruby on Rails framework. It is an AirBnb clone where users can rent out Sports Equipment.
+PassSports 2 is currently a work-in-progress refresh of PassSports.
 
-The app is live at https://passsports-production.herokuapp.com/
-
-## About
-
-PassSports is a team project part of Le Wagon's Full Stack Web Development bootcamp (Batch #512, Singapore). Sometimes you want to try out a sport or only play some sports casually, it makes no sense to invest money to purchase equipments for them. So by renting from people, we can try out more sports, without have to worry about not having the equipment. 
-
-And there are people with equipment that they use infrequently, so being able to rent out the equipment, they can recover money on their initial purchase, as well as not let the equipment collect dust in the closet.
-
-## Team
-
-[Engku M. Iqbal](https://github.com/emiqbal) (Team Lead)
-
-[Josh Toong](https://github.com/JToong)
-
-[Muhammad Syakiran](https://github.com/Syakiran97)
-
-[Rupert Yan](https://github.com/Rupertyan)
+For more on PassSports, click [here](https://github.com/emiqbal/PassSports).
 
 ## APIs/Frameworks/Gems/Plugins used
 
@@ -50,4 +34,3 @@ Special thanks to [Le Wagon Singapore](https://www.lewagon.com/singapore) teache
 ------------
 
 Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
-

@@ -8,12 +8,12 @@ class Equipment < ApplicationRecord
 
   validates :name, :description, :price_per_day, presence: true
   validates :price_per_day, numericality: { only_integer: true, greater_than: 0 }
-  validates :category, inclusion: { in: %w(Gym Racket Camping),
+  validates :category, inclusion: { in: %w[Gym Racket Camping],
     message: "%{value} is not one of three categories" }
 
   include PgSearch::Model
   pg_search_scope :search_by_equipment,
-  against: [:name, :description],
+  against: %i[name description],
   using: {
     tsearch: { prefix: true }
   }
@@ -25,6 +25,7 @@ class Equipment < ApplicationRecord
   end
 
   private
+
   def purge_photo
     photo.purge
   end
