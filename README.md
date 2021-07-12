@@ -1,4 +1,4 @@
-# PassSports-2
+# PassSports
 
 PassSports is a Web App written with the Ruby on Rails framework. It is an AirBnb clone where users can rent out Sports Equipment.
 
